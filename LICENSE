@@ -1,5 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Copyright (c) 2016 Ian Dundas <contact@iandundas.co.uk>
+=======
+The MIT License (MIT)
+
+Copyright (c) 2016 Ian Dundas
+>>>>>>> 0e90c6dd7ebd5ef24f9aef12a9ac0cb9662ec6db
 =======
 The MIT License (MIT)
 
@@ -14,8 +20,13 @@ copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
+=======
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+>>>>>>> 0e90c6dd7ebd5ef24f9aef12a9ac0cb9662ec6db
 =======
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
@@ -27,8 +38,13 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 <<<<<<< HEAD
+<<<<<<< HEAD
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+=======
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+>>>>>>> 0e90c6dd7ebd5ef24f9aef12a9ac0cb9662ec6db
 =======
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
