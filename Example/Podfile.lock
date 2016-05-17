@@ -1,0 +1,36 @@
+PODS:
+  - Nimble (4.0.1)
+  - ReactiveKit (2.0.0-beta5)
+  - ReactiveKitSwappableDatasource/Base (0.1.1):
+    - ReactiveKit (~> 2.0-beta)
+    - ReactiveUIKit (~> 2.0-beta)
+  - ReactiveKitSwappableDatasource/Realm (0.1.1):
+    - ReactiveKitSwappableDatasource/Base (~> 0.1)
+    - RealmSwift (~> 0.1)
+  - ReactiveUIKit (2.0.0-beta5):
+    - ReactiveKit (~> 2.0.0-beta)
+  - Realm (0.102.1):
+    - Realm/Headers (= 0.102.1)
+  - Realm/Headers (0.102.1)
+  - RealmSwift (0.102.1):
+    - Realm (= 0.102.1)
+
+DEPENDENCIES:
+  - Nimble
+  - ReactiveKitSwappableDatasource/Realm (from `../`)
+
+EXTERNAL SOURCES:
+  ReactiveKitSwappableDatasource:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
+  ReactiveKit: 59711d1045f510796df390d1e03bfc2e3987283e
+  ReactiveKitSwappableDatasource: df7ed29d8422f32b16fc58cceebe356615f4e681
+  ReactiveUIKit: 989835c37ad6301f429036dac4f3be87f4cc08f4
+  Realm: 5254be610db3e5024879684717bf038990bb59ec
+  RealmSwift: 3e24e6bcf56d98ccc134f4909e00839b81a659af
+
+PODFILE CHECKSUM: 596bec5257e6ccc0b6e1b3ba8f9117e9501380f4
+
+COCOAPODS: 1.0.0
