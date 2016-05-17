@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ReactiveUIKit
 import ReactiveKit
 
 public protocol DataSourceType {
