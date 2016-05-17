@@ -14,6 +14,8 @@
 		3CB76F3B1CEB330D00D17FED /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB76F361CEB330D00D17FED /* Container.swift */; };
 		3CB76F3C1CEB330D00D17FED /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB76F371CEB330D00D17FED /* DataSource.swift */; };
 		3CB76F3D1CEB330D00D17FED /* RealmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB76F391CEB330D00D17FED /* RealmDataSource.swift */; };
+		3CB76F411CEB375700D17FED /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB76F3F1CEB375700D17FED /* ReactiveKit.framework */; };
+		3CB76F421CEB375700D17FED /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB76F401CEB375700D17FED /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,8 @@
 		3CB76F361CEB330D00D17FED /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		3CB76F371CEB330D00D17FED /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		3CB76F391CEB330D00D17FED /* RealmDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDataSource.swift; sourceTree = "<group>"; };
+		3CB76F3F1CEB375700D17FED /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
+		3CB76F401CEB375700D17FED /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CB76F421CEB375700D17FED /* RealmSwift.framework in Frameworks */,
+				3CB76F411CEB375700D17FED /* ReactiveKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +67,8 @@
 		3CB76F0F1CEB32C600D17FED = {
 			isa = PBXGroup;
 			children = (
+				3CB76F3F1CEB375700D17FED /* ReactiveKit.framework */,
+				3CB76F401CEB375700D17FED /* RealmSwift.framework */,
 				3CB76F1B1CEB32C700D17FED /* ReactiveKitSwappableDatasource */,
 				3CB76F271CEB32C700D17FED /* ReactiveKitSwappableDatasourceTests */,
 				3CB76F1A1CEB32C700D17FED /* Products */,
@@ -144,6 +152,7 @@
 				3CB76F151CEB32C700D17FED /* Frameworks */,
 				3CB76F161CEB32C700D17FED /* Headers */,
 				3CB76F171CEB32C700D17FED /* Resources */,
+				3CB76F3E1CEB351D00D17FED /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -224,6 +233,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3CB76F3E1CEB351D00D17FED /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveKit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3CB76F141CEB32C700D17FED /* Sources */ = {
@@ -354,6 +381,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ReactiveKitSwappableDatasource/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -370,6 +401,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ReactiveKitSwappableDatasource/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
