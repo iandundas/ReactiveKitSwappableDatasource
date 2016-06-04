@@ -34,8 +34,9 @@ public class RealmDataSource<Item: Object where Item: Equatable>: DataSourceType
 
                 case .Initial(let initialCollection):
 
-                    let changeSet = CollectionChangeset.initial(initialCollection.filter{_ in return true})
-                    observer.next(changeSet)
+//                    let changeSet = CollectionChangeset.initial(initialCollection.filter{_ in return true})
+//                    observer.next(changeSet)
+                    break
 
                 case .Update(let updatedCollection, let deletions, let insertions, let modifications):
 
