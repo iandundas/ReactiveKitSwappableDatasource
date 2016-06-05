@@ -6,4 +6,10 @@
 //  Copyright © 2016 IanDundas. All rights reserved.
 //
 
-import Foundation
+import ReactiveKit
+
+public extension CollectionChangeset{
+    var isInitialEvent: Bool{
+        return inserts.count == 0 && updates.count == 0 && deletes.count == 0
+    }
+}

@@ -48,11 +48,8 @@ class DatasourceContainerWithRealmTests: XCTestCase {
     }
     
     func testBasicInsertBinding() {
-        let datasource = RealmDataSource<Cat>(collection: emptyRealm.objects(Cat))
-        let wrapper = AnyDataSource(datasource)
-        
         var insertions = -1
-        container = DatasourceContainer(datasource: wrapper)
+        container = RealmDataSource<Cat>(collection: emptyRealm.objects(Cat)).encloseInContainer()
         
         container.collection.observeNext { changeset in
             insertions = changeset.inserts.count
@@ -70,14 +67,12 @@ class DatasourceContainerWithRealmTests: XCTestCase {
     /* Test it sends a single event containing 0 insert, 0 update, 0 delete when initially an empty container */
     func testInitialSubscriptionSendsASingleCurrentStateEventWhenInitially(){
         
-        let emptyRealmDataSource = AnyDataSource(RealmDataSource<Cat>(collection: emptyRealm.objects(Cat)))
-        
         var observeCallCount = 0
         var inserted = false
         var updated = false
         var deleted = false
         
-        container = DatasourceContainer(datasource: emptyRealmDataSource)
+        container = RealmDataSource<Cat>(collection: emptyRealm.objects(Cat)).encloseInContainer()
         
         container.collection
             .distinct {!($0.collection.elementsEqual($1.collection))} // filter double initial event
@@ -100,14 +95,12 @@ class DatasourceContainerWithRealmTests: XCTestCase {
     /* Test it sends an event containing 0 insert, 0 update, 0 delete when initially non-empty container */
     func testInitialSubscriptionSendsASingleCurrentStateEventWhenInitiallyNonEmpty(){
         
-        let nonemptyRealmDataSource = AnyDataSource(RealmDataSource<Cat>(collection: nonEmptyRealm.objects(Cat)))
+        container = RealmDataSource<Cat>(collection: nonEmptyRealm.objects(Cat)).encloseInContainer()
         
         var observeCallCount = 0
         var inserted = false
         var updated = false
         var deleted = false
-        
-        container = DatasourceContainer(datasource: nonemptyRealmDataSource)
         
         container.collection
             .distinct {!($0.collection.elementsEqual($1.collection))} // filter double initial event

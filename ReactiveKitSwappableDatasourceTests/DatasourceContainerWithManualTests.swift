@@ -37,9 +37,7 @@ class DatasourceContainerWithManualTests: XCTestCase {
 
     func testInitialEventWhenStartingWithEmptyCollection(){
         
-        let datasource = ManualDataSource<Cat>(items: [])
-        let wrapper = AnyDataSource(datasource)
-        let dsc = DatasourceContainer(datasource: wrapper)
+        let dsc = ManualDataSource<Cat>(items: []).encloseInContainer()
         
         var detectedInitialEvent = false
         dsc.collection.observeNext { changes in
@@ -54,9 +52,7 @@ class DatasourceContainerWithManualTests: XCTestCase {
         
     func testInitialEventWhenStartingWithNonemptyCollection(){
         
-        let datasource = ManualDataSource<Cat>(items: nonemptyCollection)
-        let wrapper = AnyDataSource(datasource)
-        let dsc = DatasourceContainer(datasource: wrapper)
+        let dsc = ManualDataSource<Cat>(items: nonemptyCollection).encloseInContainer()
         
         var initialItems = [Cat]()
         var detectedInitialEvent = false
@@ -75,8 +71,7 @@ class DatasourceContainerWithManualTests: XCTestCase {
     func testInitialEventWhenObservingAfterInsertingOnAnEmptyDataSource(){
         
         let datasource = ManualDataSource<Cat>(items: emptyCollection)
-        let wrapper = AnyDataSource(datasource)
-        let dsc = DatasourceContainer(datasource: wrapper)
+        let dsc = datasource.encloseInContainer()
         
         datasource.replaceItems(nonemptyCollection)
         
