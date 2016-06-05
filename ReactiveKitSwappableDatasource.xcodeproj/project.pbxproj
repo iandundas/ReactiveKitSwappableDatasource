@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1A44651D03E5D00018E1AA /* ProveOperationToStreamIssueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1A44641D03E5D00018E1AA /* ProveOperationToStreamIssueTests.swift */; };
 		3C211E751CEF0DEA0033AFA1 /* DatasourceContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C211E731CEF0DEA0033AFA1 /* DatasourceContainerTests.swift */; };
 		3C211E761CEF0DEA0033AFA1 /* RealmNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C211E741CEF0DEA0033AFA1 /* RealmNotificationTests.swift */; };
 		3C211E771CEF0E150033AFA1 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB76F3F1CEB375700D17FED /* ReactiveKit.framework */; };
@@ -95,6 +96,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3C1A44641D03E5D00018E1AA /* ProveOperationToStreamIssueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProveOperationToStreamIssueTests.swift; sourceTree = "<group>"; };
 		3C211E731CEF0DEA0033AFA1 /* DatasourceContainerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasourceContainerTests.swift; sourceTree = "<group>"; };
 		3C211E741CEF0DEA0033AFA1 /* RealmNotificationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmNotificationTests.swift; sourceTree = "<group>"; };
 		3C211E7C1CEF0E3A0033AFA1 /* Cat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				3C211E731CEF0DEA0033AFA1 /* DatasourceContainerTests.swift */,
 				3C211E741CEF0DEA0033AFA1 /* RealmNotificationTests.swift */,
 				3CB76F2A1CEB32C700D17FED /* Info.plist */,
+				3C1A44641D03E5D00018E1AA /* ProveOperationToStreamIssueTests.swift */,
 			);
 			path = ReactiveKitSwappableDatasourceTests;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C211E751CEF0DEA0033AFA1 /* DatasourceContainerTests.swift in Sources */,
+				3C1A44651D03E5D00018E1AA /* ProveOperationToStreamIssueTests.swift in Sources */,
 				3C211E761CEF0DEA0033AFA1 /* RealmNotificationTests.swift in Sources */,
 				3C211E7D1CEF0E3A0033AFA1 /* Cat.swift in Sources */,
 			);
