@@ -49,7 +49,7 @@ class DatasourceContainerWithRealmTests: XCTestCase {
     
     func testBasicInsertBinding() {
         var insertions = -1
-        container = RealmDataSource<Cat>(collection: emptyRealm.objects(Cat)).encloseInContainer()
+        container = RealmDataSource<Cat>(items:emptyRealm.objects(Cat)).encloseInContainer()
         
         container.collection.observeNext { changeset in
             insertions = changeset.inserts.count
@@ -72,7 +72,7 @@ class DatasourceContainerWithRealmTests: XCTestCase {
         var updated = false
         var deleted = false
         
-        container = RealmDataSource<Cat>(collection: emptyRealm.objects(Cat)).encloseInContainer()
+        container = RealmDataSource<Cat>(items:emptyRealm.objects(Cat)).encloseInContainer()
         
         container.collection
             .distinct {!($0.collection.elementsEqual($1.collection))} // filter double initial event
@@ -95,7 +95,7 @@ class DatasourceContainerWithRealmTests: XCTestCase {
     /* Test it sends an event containing 0 insert, 0 update, 0 delete when initially non-empty container */
     func testInitialSubscriptionSendsASingleCurrentStateEventWhenInitiallyNonEmpty(){
         
-        container = RealmDataSource<Cat>(collection: nonEmptyRealm.objects(Cat)).encloseInContainer()
+        container = RealmDataSource<Cat>(items:nonEmptyRealm.objects(Cat)).encloseInContainer()
         
         var observeCallCount = 0
         var inserted = false
@@ -121,7 +121,7 @@ class DatasourceContainerWithRealmTests: XCTestCase {
     
     func testReplacingEmptyDatasourceWithAnotherEmptyDatasourceProducedNoUpdateSignals(){
         
-        let emptyRealmDataSource = AnyDataSource(RealmDataSource<Cat>(collection: emptyRealm.objects(Cat)))
+        let emptyRealmDataSource = AnyDataSource(RealmDataSource<Cat>(items:emptyRealm.objects(Cat)))
         let emptyManualDataSource = AnyDataSource(ManualDataSource(items: [Cat]()))
         
         var observeCallCount = 0
@@ -141,7 +141,7 @@ class DatasourceContainerWithRealmTests: XCTestCase {
     
     func testReplacingEmptyDatasourceWithAnotherEmptyDatasourceAndAddingItemsToInitialDataSourceProducesNoUpdateSignals(){
         
-        let emptyRealmDataSource = AnyDataSource(RealmDataSource<Cat>(collection: emptyRealm.objects(Cat)))
+        let emptyRealmDataSource = AnyDataSource(RealmDataSource<Cat>(items:emptyRealm.objects(Cat)))
         let emptyManualDataSource = AnyDataSource(ManualDataSource(items: [Cat]()))
         
         var observeCallCount = 0
@@ -167,7 +167,7 @@ class DatasourceContainerWithRealmTests: XCTestCase {
     func testReplacingNonEmptyDatasourceWithAnEmptyDatasourceProducesCorrectDeleteSignals(){
         
         // contains 4 items
-        let nonEmptyRealmDataSource = AnyDataSource(RealmDataSource<Cat>(collection: nonEmptyRealm.objects(Cat)))
+        let nonEmptyRealmDataSource = AnyDataSource(RealmDataSource<Cat>(items:nonEmptyRealm.objects(Cat)))
         let emptyManualDataSource = AnyDataSource(ManualDataSource(items: [Cat]()))
         
         var observeCallCount = 0
@@ -194,7 +194,7 @@ class DatasourceContainerWithRealmTests: XCTestCase {
         
         // contains 4 items
         let emptyManualDataSource = AnyDataSource(ManualDataSource(items: [Cat]()))
-        let nonEmptyRealmDataSource = AnyDataSource(RealmDataSource<Cat>(collection: nonEmptyRealm.objects(Cat)))
+        let nonEmptyRealmDataSource = AnyDataSource(RealmDataSource<Cat>(items:nonEmptyRealm.objects(Cat)))
         
         var observeCallCount = 0
         var deleteCount = 0
@@ -218,8 +218,8 @@ class DatasourceContainerWithRealmTests: XCTestCase {
     
     func testReplacingNonEmptyDatasourceWithAnotherNonEmptyDatasourceContainingSomeDifferentItemsProducesCorrectMutationSignals(){
         
-        let dataSourceA = AnyDataSource(RealmDataSource<Cat>(collection: nonEmptyRealm.objects(Cat).filter("miceEaten < 5"))) // 2 items (0, 3)
-        let dataSourceB = AnyDataSource(RealmDataSource<Cat>(collection: nonEmptyRealm.objects(Cat).filter("miceEaten > 0"))) // 3 items (   3, 5, 100)
+        let dataSourceA = AnyDataSource(RealmDataSource<Cat>(items:nonEmptyRealm.objects(Cat).filter("miceEaten < 5"))) // 2 items (0, 3)
+        let dataSourceB = AnyDataSource(RealmDataSource<Cat>(items:nonEmptyRealm.objects(Cat).filter("miceEaten > 0"))) // 3 items (   3, 5, 100)
         
         var observeCallCount = 0
         var insertCount = 0

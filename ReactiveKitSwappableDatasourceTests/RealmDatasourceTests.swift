@@ -27,7 +27,7 @@ class RealmDatasourceTests: XCTestCase {
         
         realm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: NSUUID().UUIDString))
         
-        datasource = RealmDataSource<Cat>(collection: realm.objects(Cat))
+        datasource = RealmDataSource<Cat>(items: realm.objects(Cat))
     }
     
     override func tearDown() {
