@@ -9,7 +9,6 @@
 import UIKit
 import RealmSwift
 
-
 class Cat: Object {
     dynamic var name = ""
     dynamic var miceEaten: Int = 0
@@ -19,28 +18,5 @@ class Cat: Object {
         return "id"
     }
 }
-
-
-//extension Cat: Equatable{}
-
-//func ==(lhs: Cat, rhs: Cat) -> Bool{
-//    return lhs.name == rhs.name
-//}
-
-//func <(lhs: Cat, rhs: Cat) -> Bool{
-//    return true
-//}
-//
-//func <=(lhs: Cat, rhs: Cat) -> Bool{
-//    return true
-//}
-//
-//func >=(lhs: Cat, rhs: Cat) -> Bool{
-//    return true
-//}
-//
-//func >(lhs: Cat, rhs: Cat) -> Bool{
-//    return true
-//}
 
 
