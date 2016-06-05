@@ -17,8 +17,10 @@ public protocol DataSourceType {
 
     // Access a feed of mutation events:
     func mutations() -> Stream<CollectionChangeset<[ItemType]>>
-    
+
     func encloseInContainer() -> DatasourceContainer<ItemType>
+    
+    func eraseType() -> AnyDataSource<ItemType>
 }
 
 public extension DataSourceType{
@@ -26,6 +28,9 @@ public extension DataSourceType{
         let wrapper = AnyDataSource(self)
         let datasourceContainer = DatasourceContainer(datasource: wrapper)
         return datasourceContainer
+    }
+    public func eraseType() -> AnyDataSource<ItemType>{
+        return AnyDataSource(self)
     }
 }
 
