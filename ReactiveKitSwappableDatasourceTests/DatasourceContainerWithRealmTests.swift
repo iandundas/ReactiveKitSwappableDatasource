@@ -13,7 +13,7 @@ import RealmSwift
 
 @testable import ReactiveKitSwappableDatasource
 
-class DatasourceContainerTests: XCTestCase {
+class DatasourceContainerWithRealmTests: XCTestCase {
     
     var emptyRealm: Realm!
     var nonEmptyRealm: Realm!
