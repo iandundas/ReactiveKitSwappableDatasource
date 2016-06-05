@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C0F8D531D041A3F00A1A17C /* ManualDatasourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0F8D521D041A3F00A1A17C /* ManualDatasourceTests.swift */; };
+		3C0F8D551D04221300A1A17C /* DemonstrateFilterIssueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0F8D541D04221300A1A17C /* DemonstrateFilterIssueTests.swift */; };
+		3C0F8D5A1D04266100A1A17C /* InitialNotGivenFirstTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0F8D591D04266100A1A17C /* InitialNotGivenFirstTest.swift */; };
+		3C0F8D5D1D0428D400A1A17C /* PostSortDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0F8D5C1D0428D400A1A17C /* PostSortDataSource.swift */; };
 		3C1A44651D03E5D00018E1AA /* ProveOperationToStreamIssueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1A44641D03E5D00018E1AA /* ProveOperationToStreamIssueTests.swift */; };
+		3C1A446E1D03EE790018E1AA /* RealmDatasourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1A446D1D03EE790018E1AA /* RealmDatasourceTests.swift */; };
 		3C211E751CEF0DEA0033AFA1 /* DatasourceContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C211E731CEF0DEA0033AFA1 /* DatasourceContainerTests.swift */; };
 		3C211E761CEF0DEA0033AFA1 /* RealmNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C211E741CEF0DEA0033AFA1 /* RealmNotificationTests.swift */; };
 		3C211E771CEF0E150033AFA1 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB76F3F1CEB375700D17FED /* ReactiveKit.framework */; };
@@ -96,7 +101,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3C0F8D521D041A3F00A1A17C /* ManualDatasourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualDatasourceTests.swift; sourceTree = "<group>"; };
+		3C0F8D541D04221300A1A17C /* DemonstrateFilterIssueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemonstrateFilterIssueTests.swift; sourceTree = "<group>"; };
+		3C0F8D591D04266100A1A17C /* InitialNotGivenFirstTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialNotGivenFirstTest.swift; sourceTree = "<group>"; };
+		3C0F8D5C1D0428D400A1A17C /* PostSortDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostSortDataSource.swift; path = "Post-sort/PostSortDataSource.swift"; sourceTree = "<group>"; };
 		3C1A44641D03E5D00018E1AA /* ProveOperationToStreamIssueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProveOperationToStreamIssueTests.swift; sourceTree = "<group>"; };
+		3C1A446D1D03EE790018E1AA /* RealmDatasourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDatasourceTests.swift; sourceTree = "<group>"; };
 		3C211E731CEF0DEA0033AFA1 /* DatasourceContainerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasourceContainerTests.swift; sourceTree = "<group>"; };
 		3C211E741CEF0DEA0033AFA1 /* RealmNotificationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmNotificationTests.swift; sourceTree = "<group>"; };
 		3C211E7C1CEF0E3A0033AFA1 /* Cat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
@@ -140,6 +150,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C0F8D471D04191800A1A17C /* Manual */ = {
+			isa = PBXGroup;
+			children = (
+				3C0F8D521D041A3F00A1A17C /* ManualDatasourceTests.swift */,
+			);
+			name = Manual;
+			sourceTree = "<group>";
+		};
+		3C0F8D4E1D04192400A1A17C /* Datasource Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3C0F8D471D04191800A1A17C /* Manual */,
+				3C1A446C1D03EE670018E1AA /* Realm */,
+			);
+			name = "Datasource Tests";
+			sourceTree = "<group>";
+		};
+		3C0F8D4F1D04192D00A1A17C /* DatasourceContainer Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3C211E731CEF0DEA0033AFA1 /* DatasourceContainerTests.swift */,
+			);
+			name = "DatasourceContainer Tests";
+			sourceTree = "<group>";
+		};
+		3C0F8D501D04193D00A1A17C /* _ */ = {
+			isa = PBXGroup;
+			children = (
+				3C211E7E1CEF0F450033AFA1 /* Nimble.xcodeproj */,
+				3CB76F2A1CEB32C700D17FED /* Info.plist */,
+			);
+			name = _;
+			sourceTree = "<group>";
+		};
+		3C0F8D511D04194C00A1A17C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3C211E7C1CEF0E3A0033AFA1 /* Cat.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3C0F8D561D04221900A1A17C /* ReactiveKitBugs */ = {
+			isa = PBXGroup;
+			children = (
+				3C0F8D541D04221300A1A17C /* DemonstrateFilterIssueTests.swift */,
+			);
+			name = ReactiveKitBugs;
+			sourceTree = "<group>";
+		};
+		3C0F8D571D04262F00A1A17C /* RealmBugs */ = {
+			isa = PBXGroup;
+			children = (
+				3C0F8D591D04266100A1A17C /* InitialNotGivenFirstTest.swift */,
+			);
+			name = RealmBugs;
+			sourceTree = "<group>";
+		};
+		3C0F8D5B1D0428B200A1A17C /* Post-sort */ = {
+			isa = PBXGroup;
+			children = (
+				3C0F8D5C1D0428D400A1A17C /* PostSortDataSource.swift */,
+			);
+			name = "Post-sort";
+			sourceTree = "<group>";
+		};
+		3C1A446C1D03EE670018E1AA /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				3C211E741CEF0DEA0033AFA1 /* RealmNotificationTests.swift */,
+				3C1A446D1D03EE790018E1AA /* RealmDatasourceTests.swift */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
 		3C211E7F1CEF0F450033AFA1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,11 +281,12 @@
 		3CB76F271CEB32C700D17FED /* ReactiveKitSwappableDatasourceTests */ = {
 			isa = PBXGroup;
 			children = (
-				3C211E7E1CEF0F450033AFA1 /* Nimble.xcodeproj */,
-				3C211E7C1CEF0E3A0033AFA1 /* Cat.swift */,
-				3C211E731CEF0DEA0033AFA1 /* DatasourceContainerTests.swift */,
-				3C211E741CEF0DEA0033AFA1 /* RealmNotificationTests.swift */,
-				3CB76F2A1CEB32C700D17FED /* Info.plist */,
+				3C0F8D571D04262F00A1A17C /* RealmBugs */,
+				3C0F8D561D04221900A1A17C /* ReactiveKitBugs */,
+				3C0F8D501D04193D00A1A17C /* _ */,
+				3C0F8D4E1D04192400A1A17C /* Datasource Tests */,
+				3C0F8D4F1D04192D00A1A17C /* DatasourceContainer Tests */,
+				3C0F8D511D04194C00A1A17C /* Model */,
 				3C1A44641D03E5D00018E1AA /* ProveOperationToStreamIssueTests.swift */,
 			);
 			path = ReactiveKitSwappableDatasourceTests;
@@ -209,6 +295,7 @@
 		3CB76F331CEB330D00D17FED /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3C0F8D5B1D0428B200A1A17C /* Post-sort */,
 				3CB76F341CEB330D00D17FED /* Base */,
 				3CB76F381CEB330D00D17FED /* Realm */,
 			);
@@ -416,6 +503,7 @@
 				3CB76F3C1CEB330D00D17FED /* DataSource.swift in Sources */,
 				3CB76F3A1CEB330D00D17FED /* AnyDataSource.swift in Sources */,
 				3CB76F3B1CEB330D00D17FED /* Container.swift in Sources */,
+				3C0F8D5D1D0428D400A1A17C /* PostSortDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +514,10 @@
 				3C211E751CEF0DEA0033AFA1 /* DatasourceContainerTests.swift in Sources */,
 				3C1A44651D03E5D00018E1AA /* ProveOperationToStreamIssueTests.swift in Sources */,
 				3C211E761CEF0DEA0033AFA1 /* RealmNotificationTests.swift in Sources */,
+				3C0F8D551D04221300A1A17C /* DemonstrateFilterIssueTests.swift in Sources */,
+				3C1A446E1D03EE790018E1AA /* RealmDatasourceTests.swift in Sources */,
+				3C0F8D5A1D04266100A1A17C /* InitialNotGivenFirstTest.swift in Sources */,
+				3C0F8D531D041A3F00A1A17C /* ManualDatasourceTests.swift in Sources */,
 				3C211E7D1CEF0E3A0033AFA1 /* Cat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
