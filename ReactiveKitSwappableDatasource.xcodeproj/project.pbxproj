@@ -311,9 +311,9 @@
 		3CB76F341CEB330D00D17FED /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				3CB76F351CEB330D00D17FED /* AnyDataSource.swift */,
 				3CB76F361CEB330D00D17FED /* Container.swift */,
 				3CB76F371CEB330D00D17FED /* DataSource.swift */,
+				3CB76F351CEB330D00D17FED /* AnyDataSource.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";

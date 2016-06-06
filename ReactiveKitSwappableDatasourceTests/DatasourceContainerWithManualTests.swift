@@ -26,7 +26,6 @@ class DatasourceContainerWithManualTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-
         
     }
     
@@ -41,6 +40,7 @@ class DatasourceContainerWithManualTests: XCTestCase {
         
         var detectedInitialEvent = false
         dsc.collection.observeNext { changes in
+            guard changes.isInitialEvent else {fail("Should be initial event"); return}
             guard changes.collection.count == 0 else {fail("Should have been an empty initial collection");return}
             let noMutations = changes.isInitialEvent
             detectedInitialEvent = noMutations
@@ -57,6 +57,7 @@ class DatasourceContainerWithManualTests: XCTestCase {
         var initialItems = [Cat]()
         var detectedInitialEvent = false
         dsc.collection.observeNext { changes in
+            guard changes.isInitialEvent else {fail("Should be initial event"); return}
             let noMutations = changes.isInitialEvent
             detectedInitialEvent = noMutations
             
@@ -78,6 +79,7 @@ class DatasourceContainerWithManualTests: XCTestCase {
         var initialItems = [Cat]()
         var detectedInitialEvent = false
         dsc.collection.observeNext { changes in
+            guard changes.isInitialEvent else {fail("Should be initial event"); return}
             detectedInitialEvent = changes.isInitialEvent
             
             initialItems = changes.collection
@@ -86,5 +88,33 @@ class DatasourceContainerWithManualTests: XCTestCase {
         expect(detectedInitialEvent).toEventually(beTrue())
         expect(initialItems).toEventually(equal(nonemptyCollection))
     }
+    
+    func testInitialSubscriptionSendsASingleCurrentStateEventWhenInitiallyObserved(){
+        
+        var observeCallCount = 0
+        var inserted = false
+        var updated = false
+        var deleted = false
+        
+        let container = ManualDataSource<Cat>(items: [Cat]()).encloseInContainer()
+        
+        container.collection
+            .observeNext { changes in
+                guard changes.isInitialEvent else {fail("Should be initial event"); return}
+                
+                observeCallCount += 1
+                
+                inserted = inserted || changes.inserts.count > 0
+                updated = updated || changes.updates.count > 0
+                deleted = deleted || changes.deletes.count > 0
+                
+            }.disposeIn(bag)
+        
+        expect(observeCallCount).toEventually(equal(1), timeout: 1)
+        expect(inserted).toEventually(equal(false), timeout: 1)
+        expect(updated).toEventually(equal(false), timeout: 1)
+        expect(deleted).toEventually(equal(false), timeout: 1)
+    }
+    
 }
 
