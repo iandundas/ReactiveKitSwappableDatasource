@@ -86,7 +86,7 @@ class ManualDatasourceTests: XCTestCase {
         datasource.replaceItems([])
         
         expect(inserts).toEventually(equal(0))
-        expect(deletes).toEventually(equal(1)) // see ReactiveKitBugs/DemonstrateFilterIssueTests
+        expect(deletes).toEventually(equal(2)) // see ReactiveKitBugs/DemonstrateFilterIssueTests
         expect(updates).toEventually(equal(0))
     }
 
