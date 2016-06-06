@@ -61,7 +61,7 @@ public class RealmDataSource<Item: Object where Item: Equatable>: DataSourceType
 
     private let disposeBag = DisposeBag()
 
-    public init<C: RealmCollectionType where C.Element == Item>(collection: C) {
-        self.collection = AnyRealmCollection(collection)
+    public init<C: RealmCollectionType where C.Element == Item>(items: C) {
+        self.collection = AnyRealmCollection(items)
     }
 }

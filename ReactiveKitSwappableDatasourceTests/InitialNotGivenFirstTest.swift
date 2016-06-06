@@ -1,20 +1,22 @@
+//
+//  InitialNotGivenFirstTest.swift
+//  ReactiveKitSwappableDatasource
+//
+//  Created by Ian Dundas on 05/06/2016.
+//  Copyright © 2016 IanDundas. All rights reserved.
+//
+
 import UIKit
 import XCTest
 import RealmSwift
-import ReactiveKit
 import Nimble
 
 @testable import ReactiveKitSwappableDatasource
 
-/*  
-    Realm should provide to us an initial notification containing the fetched results, and then
-    provide updates afterwards about any changes.
-*/
-
-class RealmNotificationTests: XCTestCase {
+class InitialNotGivenFirstTest: XCTestCase {
     
     var realm: Realm!
-    var bag = DisposeBag()
+    var token: NotificationToken?
     
     override func setUp() {
         super.setUp()
@@ -23,9 +25,10 @@ class RealmNotificationTests: XCTestCase {
     }
     
     override func tearDown() {
-        bag.dispose()
-        realm = nil
+        token?.stop()
+        token = nil
         
+        realm = nil
         super.tearDown()
     }
     
@@ -33,21 +36,19 @@ class RealmNotificationTests: XCTestCase {
         expect(self.realm.objects(Cat).count).to(equal(0))
     }
     
-    func testInsertNotificationWorking(){
+    func testInitialNotificationReceivedAfterInsert(){
         var insertions = 0
         
-        let token = realm.objects(Cat).addNotificationBlock { (changeSet:RealmCollectionChange) in
+        token = realm.objects(Cat).addNotificationBlock { (changeSet:RealmCollectionChange) in
             switch changeSet {
-            case .Initial(let cats):
-                insertions += cats.count
+            case .Initial(let dogs):
+                insertions += dogs.count
             case .Update(_):
-                fail("Update should never be called")
+                fail("Update should never be called in this example")
             case .Error:
                 fail("Error should never be called")
             }
         }
-
-        bag.addDisposable(BlockDisposable{token.stop()})
         
         try! realm.write {
             realm.add(Cat(value: ["name" : "Mr Catzz"]))
