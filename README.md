@@ -30,6 +30,37 @@ Currently implemented is a handle for a basic Array (`ManualDataSource`) and for
 - On first observe, observer should receive a single event: the current collection state. This is identifyable because insert, update and delete counts are all zero.
 
 
+## Behaviour: 
+
+### DataSourceType
+- The `DataSourceType` implementation will send it's current state when first observed (`.mutations().observeNext {changes in}`) - this first event is identifyable using `changes.isInitialEvent`.
+- TODO: There should be a flag specifying if we want it to propagate .Initial event or not, because when we chain Datasource Containers together, we don't want the initial events to spread beyond the first time.
+
+## DatasourceContainer (DSC)
+- When we first observe the container, it will already contain a datasource so we will always get an event upon observation. 
+- _TODO_ we should only get one event, and this should be identifyable as the initial event.
+- The DatasourceContainer's datasource can be swapped out with another. 
+- This new datasource will also have an initial event if it's just got created, however _TODO_ we do not want to propagate this on the DSC api because that would be confusing - observers are not supposed to be aware that the datasource has changed.
+
+
+
+
+
+## Starting state of Datasources
+
+### Realm: 
+This will start with the pre-fetch of data.
+
+### FRC: 
+This will start with the preexisting fetch of data from Core Data. 
+
+### Manual:
+This is initialized with an existing collection
+
+
+
+
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

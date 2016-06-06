@@ -27,7 +27,19 @@ public class DatasourceContainer<ItemType: Equatable>{
             // collection with the new list of items in the new data source. Some of these
             // may be the same, so we want to perform a diff to identify any items that don't
             // need to be removed (or just need their list order to be updated)
-            collection.replace(datasource.items(), performDiff: true)
+            
+            
+            let incomingItems = datasource.items()
+            let existingItems = collection.collection
+            
+            // Ensure that the incoming collection is different to the existing collection, because otherwise
+            // we'll get an empty changeset event which can be mistaken for a .Initial event
+            if incomingItems.elementsEqual(existingItems){
+                // do nothing
+            }
+            else{
+                collection.replace(incomingItems, performDiff: true)
+            }
             setupDataSourceBinding()
         }
     }
@@ -49,6 +61,7 @@ public class DatasourceContainer<ItemType: Equatable>{
 
     private func setupDataSourceBinding(){
         datasource.mutations()
+            .filter{ !$0.isInitialEvent } // we set the initial value manually when binding, so this causes a duplicate event, filter it out.
             .bindTo(collection)
             .disposeIn(disposable)
     }
