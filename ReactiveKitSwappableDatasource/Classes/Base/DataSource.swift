@@ -32,6 +32,12 @@ public extension DataSourceType{
     public func eraseType() -> AnyDataSource<ItemType>{
         return AnyDataSource(self)
     }
+    
+    public func postSort(isOrderedBefore: (ItemType, ItemType) -> Bool) -> AnyDataSource<ItemType>{
+        let wrapper = AnyDataSource(self)
+        let postsort = PostSortDataSource(datasource: wrapper, isOrderedBefore: isOrderedBefore)
+        return AnyDataSource(postsort)
+    }
 }
 
 public class ManualDataSource<Item: Equatable>: DataSourceType {
