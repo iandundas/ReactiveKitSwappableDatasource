@@ -1,2 +1,2 @@
 github "ReactiveKit/ReactiveKit" "v2.0.4"
-github "realm/realm-cocoa" "v1.0.0"
+github "realm/realm-cocoa" "v1.1.0"
